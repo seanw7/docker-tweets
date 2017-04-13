@@ -11,16 +11,10 @@ import psycopg2
 consumer = oauth2.Consumer(constants.CONSUMER_KEY, constants.CONSUMER_SECRET)
 client = oauth2.Client(consumer)
 
-
-## attempting to make app check DB to see if the email is inside DB and then grab
-# oauth token and secret to make an auth token
-
-
-#this is what we are searching for. %20 is a blank space.
-searchText = input('What do you want to search for(spaces should be %20)?: ')
+#searchText = input("What do you want to search for(spaces should be %20)?: ")
 #searchText='learn%20python+filter:images'   # 192.168.99.101 devenv ip
 Database.initialise(database='postgres', user='postgres', password='postgres', host='db')
-
+searchText = "technologent"
 loginCheck = input("What is your email? ")
 #try:
 user = User.load_from_db_by_email(loginCheck)
