@@ -2,3 +2,4 @@ python - Copy
 twitter-app
 .git
 __pycache__
+wait-for-postgres.sh
