@@ -5,23 +5,25 @@ import json
 from database import Database, CursorFromConnectionFromPool
 from user import User
 import psycopg2
+import time
 
 # first we need to create a consumer, which is an object that represents our
 # application and allows twitter api to recognize its our app.
 consumer = oauth2.Consumer(constants.CONSUMER_KEY, constants.CONSUMER_SECRET)
 client = oauth2.Client(consumer)
 
-
+print("Waiting for database... (10 seconds)")
+time.sleep(10)
 ## attempting to make app check DB to see if the email is inside DB and then grab
 # oauth token and secret to make an auth token
 
-
+loginCheck = input("What is your email? ")
 #this is what we are searching for. %20 is a blank space.
 searchText = input('What do you want to search for(spaces should be %20)?: ')
 #searchText='learn%20python+filter:images'   # 192.168.99.101 devenv ip
 Database.initialise(database='postgres', user='postgres', password='postgres', host='db')
 
-loginCheck = input("What is your email? ")
+#loginCheck = input("What is your email? ")
 #try:
 user = User.load_from_db_by_email(loginCheck)
 # except Exception:
