@@ -3,3 +3,4 @@ twitter-app
 .git
 __pycache__
 wait-for-postgres.sh
+python-v2
